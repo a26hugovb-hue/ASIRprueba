@@ -141,21 +141,54 @@ sudo reboot
 
 ## 4. Comprobación
 
-Para confirmar que todo funciona correctamente, abre una terminal y ejecuta estos comandos:
+Una vez instalados Ubuntu y las *Guest Additions*, conviene comprobar que el sistema, los recursos asignados y la red funcionan correctamente. Abre una terminal con `Ctrl + Alt + T` y ejecuta los siguientes comandos.
+
+### 4.1 Sistema operativo
 
 ```bash
-lsb_release -a          # Muestra la versión de Ubuntu instalada
-ip addr                 # Muestra las interfaces de red y la dirección IP
-ping -c 4 ubuntu.com    # Comprueba la conexión a Internet
-df -h                   # Muestra el espacio usado y libre del disco
+lsb_release -a   # Muestra la versión de Ubuntu instalada
+uname -r         # Muestra la versión del núcleo (kernel) de Linux
 ```
 
-La instalación es correcta si:
+### 4.2 Recursos de la máquina virtual
 
-* `lsb_release -a` muestra la versión de Ubuntu descargada.
-* `ip addr` muestra una interfaz (por ejemplo `enp0s3`) con una dirección IP del tipo `10.0.2.15`.
-* `ping` recibe respuesta sin pérdida de paquetes.
-* Al cambiar el tamaño de la ventana, el escritorio de Ubuntu se adapta automáticamente (*Guest Additions* funcionando).
+```bash
+free -h          # Muestra la memoria RAM total, usada y libre
+nproc            # Muestra el número de procesadores disponibles
+df -h            # Muestra el espacio usado y libre del disco
+```
+
+Estos valores deben coincidir con el hardware asignado en el [paso 3.3](#33-crear-la-máquina-virtual).
+
+### 4.3 Red
+
+```bash
+ip addr               # Muestra las interfaces de red y la dirección IP
+ping -c 4 ubuntu.com  # Comprueba la conexión a Internet
+```
+
+### 4.4 Guest Additions
+
+```bash
+VBoxControl --version   # Muestra la versión de las Guest Additions instaladas
+```
+
+### 4.5 Resultados esperados
+
+| Comando | Resultado correcto |
+|---|---|
+| `lsb_release -a` | Aparece *Ubuntu* y la versión LTS descargada |
+| `uname -r` | Un número de versión del kernel (depende de la versión de Ubuntu) |
+| `free -h` | Un total cercano a 4 GB (algo menos, porque el sistema reserva una parte) |
+| `nproc` | `2` |
+| `df -h` | La partición `/` con un tamaño cercano a 25 GB |
+| `ip addr` | Una interfaz (por ejemplo `enp0s3`) con una IP del tipo `10.0.2.15` en modo NAT |
+| `ping -c 4 ubuntu.com` | 4 paquetes enviados, 4 recibidos y `0% packet loss` |
+| `VBoxControl --version` | Un número de versión, por ejemplo `7.1.4r...` |
+
+Además, al cambiar el tamaño de la ventana, el escritorio de Ubuntu debe adaptarse automáticamente.
+
+> **Nota:** si algún resultado no coincide, consulta la sección [5. Resolución de problemas](#5-resolución-de-problemas).
 
 ---
 
