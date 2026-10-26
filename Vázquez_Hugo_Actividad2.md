@@ -202,6 +202,9 @@ Además, al cambiar el tamaño de la ventana, el escritorio de Ubuntu debe adapt
 | Ubuntu va muy lento | Poca RAM o CPU asignada | Con la máquina apagada: **Configuración → Sistema** y aumentar los valores |
 | Vuelve a arrancar el instalador | La ISO sigue conectada | **Configuración → Almacenamiento** y quitar la ISO de la unidad óptica |
 | No hay Internet | Adaptador de red mal configurado | **Configuración → Red** y elegir **NAT** |
+| El ratón se queda atrapado dentro de la máquina | Faltan las *Guest Additions* | Pulsar la **tecla anfitrión** (`Ctrl` derecho) para liberarlo |
+| No funciona copiar y pegar entre los dos sistemas | Portapapeles compartido desactivado | **Dispositivos → Portapapeles compartido → Bidireccional** |
+| `VBoxControl: command not found` | Las *Guest Additions* no están instaladas | Repetir el [paso 3.5](#35-instalar-las-guest-additions) |
 
 > **Consejo:** antes de hacer cambios importantes, crea una **instantánea** (*snapshot*) desde **Máquina → Tomar instantánea**. Así podrás volver a ese estado si algo sale mal.
 
@@ -244,4 +247,9 @@ ping -c 4 8.8.8.8   # Comprueba si hay salida a Internet
 * [Tutorial oficial: instalar Ubuntu Desktop](https://ubuntu.com/tutorials/install-ubuntu-desktop)
 * [Documentación oficial de Ubuntu](https://help.ubuntu.com/)
 * [Imagen de la introducción: *VirtualBox 7.1.4.png*, Wikimedia Commons](https://commons.wikimedia.org/wiki/File:VirtualBox_7.1.4.png) 
+
+---
+
+*Autor: Hugo Vázquez Bergondo · Ciclo ASIR · Última actualización: octubre de 2026*
+
 ---
