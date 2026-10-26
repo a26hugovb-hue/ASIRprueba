@@ -16,7 +16,8 @@ Guía paso a paso para instalar **Ubuntu Desktop** dentro de una máquina virtua
    * [3.5 Instalar las Guest Additions](#35-instalar-las-guest-additions)
 4. [Comprobación](#4-comprobación)
 5. [Resolución de problemas](#5-resolución-de-problemas)
-6. [Referencias](#6-referencias)
+6. [Modos de red en VirtualBox](#6-modos-de-red-en-virtualbox)
+7. [Referencias](#7-referencias)
 
 ---
 
@@ -173,7 +174,36 @@ La instalación es correcta si:
 
 ---
 
-## 6. Referencias
+## 6. Modos de red en VirtualBox
+
+La conexión de red de la máquina virtual se configura con la máquina apagada en **Configuración → Red → Adaptador 1 → Conectado a**.
+
+| Modo | ¿Tiene Internet? | ¿Se comunica con el anfitrión? | Uso típico |
+|---|---|---|---|
+| **NAT** | Sí | No directamente | Opción por defecto. Navegar e instalar paquetes |
+| **Red NAT** | Sí | No directamente | Varias máquinas virtuales que se ven entre sí y salen a Internet |
+| **Adaptador puente** | Sí | Sí | La máquina aparece en la red de casa como un equipo más |
+| **Red interna** | No | No | Solo se comunican las máquinas virtuales entre sí |
+| **Solo anfitrión** | No | Sí | Red privada entre el anfitrión y las máquinas virtuales |
+
+### Comprobar la configuración de red
+
+Desde una terminal de Ubuntu:
+
+```bash
+ip addr             # Muestra la dirección IP de cada interfaz
+ip route            # Muestra la puerta de enlace (router) que usa la máquina
+ping -c 4 8.8.8.8   # Comprueba si hay salida a Internet
+```
+
+* En modo **NAT**, la IP suele ser `10.0.2.15`.
+* En modo **adaptador puente**, la IP será de la misma red que el ordenador real (por ejemplo `192.168.1.X`).
+
+> **Consejo:** para las prácticas normales usa **NAT**. Cambia a **adaptador puente** solo si necesitas que otros equipos de la red vean la máquina virtual.
+
+---
+
+## 7. Referencias
 
 * [Descargas de VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 * [Manual de usuario de VirtualBox](https://www.virtualbox.org/manual/)
