@@ -19,6 +19,7 @@ Guía paso a paso para instalar **Ubuntu Desktop** dentro de una máquina virtua
 6. [Modos de red en VirtualBox](#6-modos-de-red-en-virtualbox)
 7. [Referencias](#7-referencias)
 8. [Información del proyecto](#8-información-del-proyecto)
+9. [Próximas mejoras](#9-próximas-mejoras)
 
 ---
 
@@ -256,3 +257,16 @@ ping -c 4 8.8.8.8   # Comprueba si hay salida a Internet
 Esta documentación se ha elaborado utilizando Markdown. El control de versiones se realiza mediante Git y el repositorio remoto se encuentra alojado en GitHub.
 
 ---
+
+## 9. Próximas mejoras
+
+Posibles mejoras y ampliaciones para futuras versiones de esta documentación:
+
+* Añadir capturas de pantalla propias de cada paso de la instalación.
+* Explicar cómo crear y usar carpetas compartidas entre Windows y Ubuntu.
+* Ampliar el uso de las instantáneas (*snapshots*): crear, restaurar y eliminar.
+* Añadir una guía de instalación de Ubuntu Server para prácticas de administración.
+* Explicar cómo conectarse a la máquina virtual por SSH desde el anfitrión.
+
+---
+
