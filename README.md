@@ -18,6 +18,7 @@ Guía paso a paso para instalar **Ubuntu Desktop** dentro de una máquina virtua
 5. [Resolución de problemas](#5-resolución-de-problemas)
 6. [Modos de red en VirtualBox](#6-modos-de-red-en-virtualbox)
 7. [Referencias](#7-referencias)
+8. [Información del proyecto](#8-información-del-proyecto)
 
 ---
 
@@ -250,6 +251,8 @@ ping -c 4 8.8.8.8   # Comprueba si hay salida a Internet
 
 ---
 
-*Autor: Hugo Vázquez Bergondo · Ciclo ASIR · Última actualización: octubre de 2026*
+## 8. Información del proyecto
+
+Esta documentación se ha elaborado utilizando Markdown. El control de versiones se realiza mediante Git y el repositorio remoto se encuentra alojado en GitHub.
 
 ---
